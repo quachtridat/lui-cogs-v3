@@ -14,13 +14,10 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.9"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest pytest-asyncio pytest-mock
       - name: Install SFUAnime's fork of Red-DiscordBot
         run: |
-          pip install git+https://github.com/SFUAnime/Ren.git@V3/testing
+          python -m pip install --upgrade pip
+          pip install "Red-DiscordBot[dev] @ git+https://github.com/SFUAnime/Ren.git@V3/testing"
       - name: Run unit tests
         run: |
           pytest */test*
